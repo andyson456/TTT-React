@@ -49,7 +49,9 @@ class App extends Component {
 
   renderSquare(i) {
     const className = (this.state.squares[i] == null) ? "square" :
-        (this.state.winner != null && this.state.winner === this.state.squares[i]) ? 
+        (this.state.winner != null && 
+          this.state.winner === this.state.squares[i]) &&
+          this.state.winningLine.includes(i) ? 
         "square-winner" : "square-full";
     const enabled = (this.state.winner == null && this.state.squares[i] == null) ? true : false;
     const eventHandler = (enabled)? this.handleClick: () => {};
